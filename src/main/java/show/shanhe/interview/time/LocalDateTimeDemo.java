@@ -6,12 +6,19 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * LocalDateTime demo with OpenJDK-14.2
+ *
+ * @author shanhe
+ * @since JDK 8
+ */
 public class LocalDateTimeDemo {
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    /* init formatter for print time string */
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
     /**
-     * 当前时间
+     * now
      */
     @Test
     public void now() {
@@ -19,25 +26,25 @@ public class LocalDateTimeDemo {
     }
 
     /**
-     * 格式化当前时间
+     * format now
      */
     @Test
-    public void formatNow(){
-        System.out.println(LocalDateTime.now().format(formatter));
+    public void format() {
+        System.out.println(LocalDateTime.now().format(FORMATTER));
     }
 
     /**
-     * 星期几（返回的是时间的枚举）
+     * the day of week
      */
     @Test
-    public void dayOfWeek(){
+    public void dayOfWeek() {
         LocalDateTime now = LocalDateTime.now();
         DayOfWeek dayOfWeek = now.getDayOfWeek();
         System.out.println(dayOfWeek);
     }
 
     /**
-     * 本年的第几周
+     * the week of year
      */
     @Test
     public void weekOfYear() {
